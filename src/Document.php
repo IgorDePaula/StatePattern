@@ -29,7 +29,7 @@ class Document implements DocumentStateInterface
      */
     public function __construct($name, DocumentStateInterface $state)
     {
-        $this->name = $name;
+        $this->setName($name);
         $this->setState($state);
     }
 

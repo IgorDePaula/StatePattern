@@ -30,6 +30,17 @@ class DocumentTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(new WaitingState(), $this->obj->getState());
     }
 
+    public function testInitialForCoverageState()
+    {
+        $waiting = new WaitingState();
+        $this->assertEquals($waiting->__toString(), $this->obj->getState());
+    }
+
+    public function testDocuentForCoverageState()
+    {
+        $this->assertEquals('RG', $this->obj->getName());
+    }
+
     public function testInAnalisesState()
     {
         $this->obj->inAnalisis();
