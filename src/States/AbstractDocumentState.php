@@ -8,23 +8,23 @@
 
 namespace App\States;
 
-use Exception;
+use LogicException;
 
 abstract class AbstractDocumentState implements DocumentStateInterface
 {
     public function inAnalisis()
     {
-        throw new Exception("This document can't be in analisis");
+        throw new LogicException("This document can't be in analisis");
     }
 
     public function denied()
     {
-        throw new Exception("This document can't be denied");
+        throw new LogicException("This document can't be denied");
     }
 
     public function approve()
     {
-        throw new Exception("This document can't be approved");
+        throw new LogicException("This document can't be approved");
     }
 
     abstract public function __toString();

@@ -18,7 +18,7 @@ class Document implements DocumentStateInterface
      */
     private $name = '';
     /*
-     * @var AbstractDocumentState
+     * @var DocumentStateInterface
      */
     private $state = '';
 
