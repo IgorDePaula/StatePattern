@@ -65,6 +65,30 @@ class DocumentTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException LogicException
      */
+    public function testApprovedStateForDeniedStateException()
+    {
+        $obj = new Document('RG', new WaitingState());
+        $obj->inAnalisis();
+        $obj->approve();
+        $obj->denied();
+        $this->assertEquals(new DeniedState(), $obj->getState());
+    }
+
+    /**
+     * @expectedException LogicException
+     */
+    public function testApprovedStateForInAnalisisException()
+    {
+        $obj = new Document('RG', new WaitingState());
+        $obj->inAnalisis();
+        $obj->approve();
+        $obj->inAnalisis();
+        $this->assertEquals(new DeniedState(), $obj->getState());
+    }
+
+    /**
+     * @expectedException LogicException
+     */
     public function testDeniedStateException()
     {
         $obj = new Document('RG', new WaitingState());
@@ -72,4 +96,15 @@ class DocumentTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(new DeniedState(), $obj->getState());
     }
 
+    /**
+     * @expectedException LogicException
+     */
+    public function testDeniedStateForInAnalisisException()
+    {
+        $obj = new Document('RG', new WaitingState());
+        $obj->inAnalisis();
+        $obj->denied();
+        $obj->inAnalisis();
+        $this->assertEquals(new DeniedState(), $obj->getState());
+    }
 }
