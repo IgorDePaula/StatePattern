@@ -14,17 +14,17 @@ abstract class AbstractDocumentState implements DocumentStateInterface
 {
     public function inAnalisis()
     {
-        throw new Exception();
+        throw new Exception("This document can't be in analisis");
     }
 
     public function denied()
     {
-        throw new Exception();
+        throw new Exception("This document can't be denied");
     }
 
     public function approve()
     {
-        throw new Exception();
+        throw new Exception("This document can't be approved");
     }
 
     abstract public function __toString();
